@@ -8,10 +8,13 @@ module.exports = class ProductService {
   }
 
   async getById(id) {
-    return this.productAccessData.getById(id)
-  }
+    const [product, description] = await Promise.all([
+      this.productAccessData.getById(id),
+      this.productAccessData.getDescriptionById(id)
+    ])
 
-  async getDescriptionById(id) {
-    return this.productAccessData.getById(id)
+    return {
+      item: { ...product, description }
+    }
   }
 }
