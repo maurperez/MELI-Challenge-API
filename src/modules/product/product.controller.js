@@ -1,5 +1,4 @@
 module.exports = class ProductController {
-  static BASE_URL = '/items'
 
   /**
    *
@@ -7,6 +6,7 @@ module.exports = class ProductController {
    * @param {*} productService
    */
   constructor(productService) {
+    this.BASE_URL = '/api/items'
     this.productService = productService
   }
 
