@@ -14,9 +14,7 @@ module.exports = class ProductService {
     ])
 
     return {
-      item: {...product, description}
+      item: { ...product, description }
     }
   }
-
-  
 }
