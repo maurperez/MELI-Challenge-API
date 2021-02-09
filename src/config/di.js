@@ -13,4 +13,6 @@ module.exports = function configureDI(){
   const container = new DIContainer()
   addProductModuleDefinitions(container)
   console.log('Product Module configured');
+
+  return container
 }
