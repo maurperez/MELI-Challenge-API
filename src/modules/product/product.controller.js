@@ -16,7 +16,6 @@ module.exports = class ProductController {
       .route(ProductController.BASE_URL)
       .get('/', this.search.bind(this))
       .get('/:id', this.search.bind(this))
-      .get('/:id/')
   }
 
   async search(req, res) {
