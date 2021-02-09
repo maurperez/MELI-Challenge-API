@@ -1,5 +1,4 @@
 module.exports = class ProductController {
-
   /**
    *
    * @param {import('express').Application} app

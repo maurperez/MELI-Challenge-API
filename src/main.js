@@ -1,6 +1,6 @@
 require('dotenv').config()
 const configureDependencyInjection = require('./config/di')
-const {init: initProductModule} = require('./modules/product/product.module')
+const { init: initProductModule } = require('./modules/product/product.module')
 const express = require('express')
 
 const app = express()
