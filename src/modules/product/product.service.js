@@ -1,10 +1,12 @@
+const { mapSearchResults, mapProduct } = require("./product.mapper")
+
 module.exports = class ProductService {
   constructor(productAccessData) {
     this.productAccessData = productAccessData
   }
 
   async search(query) {
-    return this.productAccessData.search(query)
+    return mapSearchResults(await this.productAccessData.search(query))
   }
 
   async getById(id) {
@@ -13,8 +15,6 @@ module.exports = class ProductService {
       this.productAccessData.getDescriptionById(id)
     ])
 
-    return {
-      item: { ...product, description }
-    }
+    return mapProduct(product, description)
   }
 }
