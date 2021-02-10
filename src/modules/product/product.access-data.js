@@ -1,10 +1,12 @@
+const fetch = require('node-fetch')
+
 module.exports = class ProductAccessData {
-  constructor(baseUrl) {
-    this.baseUrl = baseUrl
+  constructor() {
+    this.meliApiEndpoint = process.env.MELI_API_URL
   }
 
   async search(query) {
-    return fetch(`${this.baseUrl}/sites/MLA/search?query=${query}`)
+    return fetch(`${this.meliApiEndpoint}/sites/MLA/search?q=${query}`)
       .then(res => res.json())
       .then(products => {
         return products
@@ -12,7 +14,7 @@ module.exports = class ProductAccessData {
   }
 
   async getById(id) {
-    return fetch(`${this.baseUrl}/items/${id}`)
+    return fetch(`${this.meliApiEndpoint}/items/${id}`)
       .then(res => res.json())
       .then(product => {
         return product
@@ -20,7 +22,7 @@ module.exports = class ProductAccessData {
   }
 
   async getDescriptionById(id) {
-    return fetch(`${this.baseUrl}/items/${id}/description`)
+    return fetch(`${this.meliApiEndpoint}/items/${id}/description`)
       .then(res => res.json())
       .then(productDescription => {
         return productDescription

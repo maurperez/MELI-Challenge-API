@@ -1,21 +1,17 @@
 module.exports = class ProductController {
-  static BASE_URL = '/items'
-
   /**
    *
    * @param {import('express').Application} app
    * @param {*} productService
    */
-  constructor(app, productService) {
-    this.app = app
+  constructor(productService) {
+    this.BASE_URL = '/api/items'
     this.productService = productService
   }
 
-  configureRoutes() {
-    this.app
-      .route(ProductController.BASE_URL)
-      .get('/', this.search.bind(this))
-      .get('/:id', this.search.bind(this))
+  configureRoutes(app) {
+    app.get(`${ProductController.BASE_URL}/:id`, this.getById.bind(this))
+    app.get(ProductController.BASE_URL, this.search.bind(this))
   }
 
   async search(req, res) {
