@@ -10,8 +10,8 @@ module.exports = class ProductController {
   }
 
   configureRoutes(app) {
-    app.get(`${ProductController.BASE_URL}/:id`, this.getById.bind(this))
-    app.get(ProductController.BASE_URL, this.search.bind(this))
+    app.get(`${this.BASE_URL}/:id`, this.getById.bind(this))
+    app.get(this.BASE_URL, this.search.bind(this))
   }
 
   async search(req, res) {
