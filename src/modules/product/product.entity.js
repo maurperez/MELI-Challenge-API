@@ -36,6 +36,10 @@ class Product {
     this.sold_quantity = sold_quantity
     this.description = description
   }
+  author = {
+    name: 'Mauro Alejandro',
+    lastname: 'Pérez'
+  }
 }
 
 class SearchResults {
@@ -53,6 +57,10 @@ class SearchResults {
   constructor(categories, items){
     this.categories = categories
     this.items = items
+  }
+  author = {
+    name: 'Mauro Alejandro',
+    lastname: 'Pérez'
   }
 }
 
