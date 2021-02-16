@@ -1,11 +1,3 @@
-/* module.exports = class Product {
-  constructor(author, categories, items) {
-    this.author = author
-    this.categories = categories
-    this.items = items
-  }
-} */
-
 class Product {
   /**
    * @param {string} id 
@@ -50,6 +42,7 @@ class SearchResults {
    *  title: string,
    *  price: {currency: string, amount: number},
    *  picture: string,
+   *  location: string,
    *  condition: string,
    *  free_shipping: boolean
    * }>} items 
