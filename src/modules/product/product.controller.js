@@ -15,9 +15,10 @@ module.exports = class ProductController {
   }
 
   async search(req, res) {
-    const {q, limit} = req.query
+    const {q: query, limit} = req.query
+    console.log(query, limit);
     if (query) {
-      res.json(await this.productService.search(q, limit))
+      res.json(await this.productService.search(query, limit))
     } else {
       res.status(400).end()
     }
