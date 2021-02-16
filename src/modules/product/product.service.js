@@ -5,8 +5,8 @@ module.exports = class ProductService {
     this.productAccessData = productAccessData
   }
 
-  async search(query) {
-    return mapSearchResults(await this.productAccessData.search(query))
+  async search(query, limit) {
+    return mapSearchResults(await this.productAccessData.search(query, limit))
   }
 
   async getById(id) {
