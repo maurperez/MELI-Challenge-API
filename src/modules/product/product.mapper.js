@@ -3,7 +3,7 @@ const { Product, SearchResults } = require("./product.entity")
 function mapSearchResults(searchResults) {
 
   const getCategories = filters => {
-    return filters.find(filter => filter.id === 'category').values.map(category => category.name)
+    return filters.find(filter => filter.id === 'category')?.values.map(category => category.name)
   }
 
   const getItems = (results) => {
@@ -11,13 +11,17 @@ function mapSearchResults(searchResults) {
       id: item.id,
       title: item.title,
       price: {
-        currency: item.prices.presentation.display_currency,
+        currency: item.currency_id,
         amount: item.price
       },
+      picture: item.thumbnail,
+      location: item.address.state_name,
       condition: item.condition,
       free_shipping: item.shipping.free_shipping
     }))
   }
+
+  console.log(getCategories(searchResults.filters));
   
   return new SearchResults(
     getCategories(searchResults.filters),
@@ -33,6 +37,7 @@ function mapProduct(product, description) {
     product.pictures[0].url,
     product.condition,
     product.shipping.free_shipping,
+    product.sold_quantity,
     description.plain_text
   )
 }
