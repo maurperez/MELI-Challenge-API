@@ -6,7 +6,9 @@ module.exports = class ProductAccessData {
   }
 
   async search(query, limit) {
-    return fetch(`${this.meliApiEndpoint}/sites/MLA/search?q=${query}&limit=${limit || 50}`)
+    return fetch(
+      `${this.meliApiEndpoint}/sites/MLA/search?q=${query}&limit=${limit || 50}`
+    )
       .then(res => res.json())
       .then(products => {
         return products

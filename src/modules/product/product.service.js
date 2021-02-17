@@ -1,4 +1,4 @@
-const { mapSearchResults, mapProduct } = require("./product.mapper")
+const { mapSearchResults, mapProduct } = require('./product.mapper')
 
 module.exports = class ProductService {
   constructor(productAccessData) {
