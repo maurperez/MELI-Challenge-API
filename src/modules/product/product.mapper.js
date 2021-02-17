@@ -1,12 +1,13 @@
-const { Product, SearchResults } = require("./product.entity")
+const { Product, SearchResults } = require('./product.entity')
 
 function mapSearchResults(searchResults) {
-
   const getCategories = filters => {
-    return filters.find(filter => filter.id === 'category')?.values.map(category => category.name)
+    return filters
+      .find(filter => filter.id === 'category')
+      ?.values.map(category => category.name)
   }
 
-  const getItems = (results) => {
+  const getItems = results => {
     return results.map(item => ({
       id: item.id,
       title: item.title,
@@ -21,8 +22,8 @@ function mapSearchResults(searchResults) {
     }))
   }
 
-  console.log(getCategories(searchResults.filters));
-  
+  console.log(getCategories(searchResults.filters))
+
   return new SearchResults(
     getCategories(searchResults.filters),
     getItems(searchResults.results)
@@ -33,7 +34,7 @@ function mapProduct(product, description) {
   return new Product(
     product.id,
     product.title,
-    {currency: product.currency_id, amount: product.price},
+    { currency: product.currency_id, amount: product.price },
     product.pictures[0].url,
     product.condition,
     product.shipping.free_shipping,

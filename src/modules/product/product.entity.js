@@ -1,11 +1,11 @@
 class Product {
   /**
-   * @param {string} id 
-   * @param {string} title 
-   * @param {{currency: string, amount: number}} price 
-   * @param {string} picture 
-   * @param {string} condition 
-   * @param {boolean} free_shipping 
+   * @param {string} id
+   * @param {string} title
+   * @param {{currency: string, amount: number}} price
+   * @param {string} picture
+   * @param {string} condition
+   * @param {boolean} free_shipping
    * @param {number} sold_quantity
    * @param {string} description
    */
@@ -18,7 +18,7 @@ class Product {
     free_shipping,
     sold_quantity,
     description
-  ){
+  ) {
     this.id = id
     this.title = title
     this.price = price
@@ -36,7 +36,7 @@ class Product {
 
 class SearchResults {
   /**
-   * @param {string[]} categories 
+   * @param {string[]} categories
    * @param {Array<{
    *  id: string,
    *  title: string,
@@ -45,9 +45,9 @@ class SearchResults {
    *  location: string,
    *  condition: string,
    *  free_shipping: boolean
-   * }>} items 
+   * }>} items
    */
-  constructor(categories, items){
+  constructor(categories, items) {
     this.categories = categories
     this.items = items
   }
